@@ -1,0 +1,17 @@
+ul,li {
+  padding-left: 1%;
+}
+#task{
+  padding-left:2%
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+.span:hover{
+ background-color: cyan;
+}
