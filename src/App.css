@@ -4,7 +4,6 @@ ul,li {
 #task{
   padding-left:2%
 }
-
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -12,6 +11,12 @@ ul,li {
   'GRAD' 0,
   'opsz' 24
 }
-.span:hover{
- background-color: cyan;
+.Collapsible__contentInner{
+  background-color: white;
+}
+.Collapsible .Collapsible:hover {
+  background-color: #c8e6fa;
+}
+.custom-collapsible:hover{
+  background-color: #c8e6fa;
 }

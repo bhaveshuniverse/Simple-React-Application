@@ -7,57 +7,59 @@ import Collapsible from "react-collapsible";
 function App() {
   return (
     <>
-    {/* Retrieving data from TC-project.json using map*/}
+      {/* Retrieving data from TC-project.json using map*/}
       {projects &&
         projects.map((project) => {
           return (
             <ul key={project.id}>
               <li type="none">
+                <span
+                  style={{ float: "left" }}
+                  className="material-symbols-outlined"
+                >
+                  expand_more
+                </span>
                 <div>
-                  <span
-                    style={{ float: "left" }}
-                    className="material-symbols-outlined"
+                  <Collapsible
+                    trigger={project.name}
+                    triggerStyle={{ color: "black" }}
+                    className="custom-collapsible"
                   >
-                    expand_more
-                  </span>
-                  <div>
-                    <Collapsible trigger={project.name}>
-                       {/* Retrieving data from TC-wbs.json using map*/}
-                      {wbs &&
-                        wbs.map((wb) => {
-                          return (
-                            <ul key={wb.id}>
-                              {project.id === wb.projectId ? (
-                                <li type="none" id="wb">
-                                  <span
-                                    style={{ float: "left" }}
-                                    id="spa"
-                                    className="material-symbols-outlined"
-                                  >
-                                    expand_more
-                                  </span>
-                                  <Collapsible trigger={wb.name}>
-                                     {/* Retrieving data from TC-task.json using map*/}
-                                    {tasks &&
-                                      tasks.map((task) => {
-                                        return (
-                                          <ul key={task.id}>
-                                            {task.wbsId === wb.projectId ? (
-                                              <li id="task" type="none">
-                                                {task.name}
-                                              </li>
-                                            ) : null}
-                                          </ul>
-                                        );
-                                      })}
-                                  </Collapsible>
-                                </li>
-                              ) : null}
-                            </ul>
-                          );
-                        })}
-                    </Collapsible>
-                  </div>
+                    {/* Retrieving data from TC-wbs.json using map*/}
+                    {wbs &&
+                      wbs.map((wb) => {
+                        return (
+                          <ul key={wb.id}>
+                            {project.id === wb.projectId ? (
+                              <li type="none" id="wba">
+                                <span
+                                  style={{ float: "left" }}
+                                  id="spa"
+                                  className="material-symbols-outlined"
+                                >
+                                  expand_more
+                                </span>
+                                <Collapsible trigger={wb.name}>
+                                  {/* Retrieving data from TC-task.json using map*/}
+                                  {tasks &&
+                                    tasks.map((task) => {
+                                      return (
+                                        <ul key={task.id}>
+                                          {task.wbsId === wb.projectId ? (
+                                            <li id="task" type="none">
+                                              {task.name}
+                                            </li>
+                                          ) : null}
+                                        </ul>
+                                      );
+                                    })}
+                                </Collapsible>
+                              </li>
+                            ) : null}
+                          </ul>
+                        );
+                      })}
+                  </Collapsible>
                 </div>
               </li>
             </ul>
